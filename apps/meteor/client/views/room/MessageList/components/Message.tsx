@@ -40,12 +40,14 @@ const Message: FC<{ message: IMessage; sequential: boolean; subscription?: ISubs
 			isSelected={isSelected}
 			isEditing={isMessageHighlight}
 			isPending={message.temp}
+			sequential={sequential}
 			data-qa-editing={isMessageHighlight}
 			data-qa-selected={isSelected}
 		>
 			<MessageLeftContainer>
 				{!sequential && message.u.username && !isSelecting && (
 					<UserAvatar
+						url={message.avatar}
 						username={message.u.username}
 						size={'x36'}
 						etag={user?.avatarETag}

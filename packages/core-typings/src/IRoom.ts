@@ -69,6 +69,7 @@ export interface IRoom extends IRocketChatRecord {
 	unread?: number;
 	alert?: boolean;
 	hideUnreadStatus?: boolean;
+	hideMentionStatus?: boolean;
 
 	muted?: string[];
 	unmuted?: string[];
@@ -83,6 +84,9 @@ export interface IRoom extends IRocketChatRecord {
 	description?: string;
 	createdOTR?: boolean;
 	e2eKeyId?: string;
+	federated?: boolean;
+
+	channel?: { _id: string };
 }
 
 export interface ICreatedRoom extends IRoom {
