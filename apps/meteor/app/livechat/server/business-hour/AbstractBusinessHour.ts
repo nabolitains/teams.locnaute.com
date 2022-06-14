@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { tz } from 'moment-timezone';
 import type { ILivechatBusinessHour, ILivechatDepartment } from '@rocket.chat/core-typings';
 
 import { IWorkHoursCronJobsWrapper, LivechatBusinessHoursRaw } from '../../../models/server/raw/LivechatBusinessHours';
@@ -71,8 +72,8 @@ export abstract class AbstractBusinessHourType {
 
 	private convertWorkHours(businessHourData: ILivechatBusinessHour): ILivechatBusinessHour {
 		businessHourData.workHours.forEach((hour: any) => {
-			const startUtc = moment.tz(`${hour.day}:${hour.start}`, 'dddd:HH:mm', businessHourData.timezone.name).utc();
-			const finishUtc = moment.tz(`${hour.day}:${hour.finish}`, 'dddd:HH:mm', businessHourData.timezone.name).utc();
+			const startUtc = tz(`${hour.day}:${hour.start}`, 'dddd:HH:mm', businessHourData.timezone.name).utc();
+			const finishUtc = tz(`${hour.day}:${hour.finish}`, 'dddd:HH:mm', businessHourData.timezone.name).utc();
 			hour.start = {
 				time: hour.start,
 				utc: {
@@ -103,7 +104,7 @@ export abstract class AbstractBusinessHourType {
 		if (!timezone) {
 			return String(moment().utcOffset() / 60);
 		}
-		return moment.tz(timezone).format('Z');
+		return tz(timezone).format('Z');
 	}
 
 	private formatDayOfTheWeekFromServerTimezoneAndUtcHour(utc: any, format: string): string {

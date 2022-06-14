@@ -1,14 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { TAPi18n } from 'meteor/rocketchat:tap-i18n';
 import _ from 'underscore';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import { settings } from '../../../settings';
 import { Rooms, Messages, Users } from '../../../models/server';
 import { SmarshHistory } from '../../../models/server/raw';
 import { MessageTypes } from '../../../ui-utils';
 import { smarsh } from '../lib/rocketchat';
-import 'moment-timezone';
 
 const start =
 	'<table style="width: 100%; border: 1px solid; border-collapse: collapse; table-layout: fixed; margin-top: 10px; font-size: 12px; word-break: break-word;"><tbody>';
