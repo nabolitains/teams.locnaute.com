@@ -4707,7 +4707,7 @@ __metadata:
     emailreplyparser: ^0.0.5
     emojione: ^4.5.0
     emojione-assets: ^4.5.0
-    eslint: ^7.5.0
+    eslint: ^6.8.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-anti-trojan-source: ^1.1.0
     eslint-plugin-import: ^2.26.0
