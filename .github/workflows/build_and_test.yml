@@ -361,7 +361,7 @@ jobs:
 
       - name: 🎭 Extract e2e:coverage
         run: |
-          NYC_OUTPUT=$(yarn test:playwright:coverage)
+          NYC_OUTPUT=$(yarn test:e2e:nyc)
           COVERAGE_REPORTS=$(grep -o '[^ ]*%' <<< "$NYC_OUTPUT")
           echo "REPORT_STATEMENTS=$(sed -n 1p <<< "$COVERAGE_REPORTS")" >> $GITHUB_ENV
 
