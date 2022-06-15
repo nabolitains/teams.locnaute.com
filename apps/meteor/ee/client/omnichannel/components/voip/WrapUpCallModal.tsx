@@ -3,8 +3,8 @@ import { useSetModal, useTranslation } from '@rocket.chat/ui-contexts';
 import React, { ReactElement, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-import { useCallCloseRoom } from '../../../contexts/CallContext';
-import Tags from '../../Omnichannel/Tags';
+import Tags from '../../../../../client/components/Omnichannel/Tags';
+import { useCallCloseRoom } from '../../../../../client/contexts/CallContext';
 
 type WrapUpCallPayload = {
 	comment: string;
@@ -39,8 +39,6 @@ export const WrapUpCallModal = (): ReactElement => {
 		closeRoom();
 		closeModal();
 	};
-
-	useEffect(() => closeRoom, [closeRoom]);
 
 	return (
 		<Modal is='form' onSubmit={handleSubmit(onSubmit)}>
